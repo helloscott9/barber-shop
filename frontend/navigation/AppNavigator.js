@@ -13,7 +13,7 @@ import Loader from "../src/components/Loader";
 
 //screens
 import OnBoarding from "../src/screens/onboarding";
-import SignInScreen from "../src/screens/signIn";
+import CreateAccountScreen from "../src/screens/authentication/CreateAccount";
 import LoginScreen from "../src/screens/authentication/Login";
 import ForgotPasswordScreen from "../src/screens/authentication/ForgotPassword";
 
@@ -58,6 +58,13 @@ function AppNavigator({ navigation }) {
         // No token found, user isn't signed in
         <>
           <Stack.Screen
+            name='OnBoarding'
+            component={OnBoarding}
+            options={{
+              title: null
+            }}
+          />
+          <Stack.Screen
             name='LoginScreen'
             component={LoginScreen}
             options={{
@@ -65,6 +72,13 @@ function AppNavigator({ navigation }) {
               // When logging out, a pop animation feels intuitive
               // You can remove this if you want the default 'push' animation
               animationTypeForReplace: auth.isSignout ? "pop" : "push"
+            }}
+          />
+          <Stack.Screen
+            name='CreateAccount'
+            component={CreateAccountScreen}
+            options={{
+              title: null
             }}
           />
           <Stack.Screen

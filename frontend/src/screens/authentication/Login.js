@@ -37,7 +37,7 @@ function Login({ navigation }) {
       ),
       headerLeft: () => (
         <NavBarButton
-          handleButtonPress={() => navigation.navigate("OnBoarding")}
+          handleButtonPress={() => navigation.goBack()}
           location='left'
           icon={
             <Ionicons name='ios-arrow-round-back' size={32} color='black' />
@@ -49,6 +49,8 @@ function Login({ navigation }) {
       headerTintColor: theme.colors.black
     });
   }, [navigation]);
+
+  React.useEffect(() => {}, [state]);
 
   const [state, setState] = useState({
     isFormValid: true,

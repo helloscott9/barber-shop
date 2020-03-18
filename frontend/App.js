@@ -7,7 +7,7 @@ import store from "./src/redux/store";
 
 //react navigation
 import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import AppNavigator from "./navigation/AppNavigator";
 

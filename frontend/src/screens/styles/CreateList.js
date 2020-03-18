@@ -1,16 +1,13 @@
 import { StyleSheet } from "react-native";
-import colors from "../../styles/colors";
+import * as theme from "../../constants/themes";
 
 const styles = StyleSheet.create({
   wrapper: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0
+    display: "flex",
+    flex: 1
   },
   content: {
-    paddingTop: 50
+    paddingTop: 30
   },
 
   closeButton: {
@@ -19,13 +16,13 @@ const styles = StyleSheet.create({
     zIndex: 9999
   },
   headerStyle: {
-    backgroundColor: colors.black,
+    backgroundColor: theme.colors.black,
     borderBottomWidth: 0
   },
   heading: {
     fontSize: 30,
     fontWeight: "300",
-    color: colors.black,
+    color: theme.colors.black,
     paddingLeft: 20,
     paddingRight: 20,
     marginTop: 10,
@@ -37,7 +34,7 @@ const styles = StyleSheet.create({
   privacyHeading: {
     fontSize: 16,
     fontWeight: "200",
-    color: colors.lightBlack,
+    color: theme.colors.lightBlack,
     marginBottom: 5,
     paddingLeft: 20,
     paddingRight: 20,
@@ -50,12 +47,12 @@ const styles = StyleSheet.create({
   privacyOptionTitle: {
     fontSize: 16,
     fontWeight: "400",
-    color: colors.lightBlack
+    color: theme.colors.lightBlack
   },
   privacyOptionDescription: {
     fontSize: 14,
     fontWeight: "200",
-    color: colors.lightBlack,
+    color: theme.colors.lightBlack,
     marginTop: 10,
     paddingRight: 90
   },
@@ -70,7 +67,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     borderBottomWidth: 1,
-    borderBottomColor: colors.gray06,
+    borderBottomColor: theme.colors.gray06,
     height: 1,
     flex: 1,
     marginLeft: 20,

@@ -9,7 +9,7 @@ import {
   Platform,
   StyleSheet
 } from "react-native";
-import colors from "../../styles/colors";
+import * as theme from "../../constants/themes";
 
 export default class RoundedButton extends Component {
   render() {
@@ -28,12 +28,12 @@ export default class RoundedButton extends Component {
       borderColor
     } = this.props;
     const backgroundColor = background || "transparent";
-    const color = textColor || colors.black;
+    const color = textColor || theme.colors.black;
     const fontSize = textSize || 16;
     const fontWeight = textWeight || "600";
     const alignPosition = textAlign || "center";
     const iconLocation = iconPosition || "left";
-    const border = borderColor || colors.white;
+    const border = borderColor || theme.colors.white;
     const opacityStyle = disabled || loading ? 0.5 : 1;
     const textOpacity = loading ? 0 : 1;
     const rippleColor =

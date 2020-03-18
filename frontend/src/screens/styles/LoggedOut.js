@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import iPhoneSize from "../../helpers/utils";
-import colors from "../../styles/colors";
+import * as theme from "../../constants/themes";
 
 let termsTextSize = 13;
 let headingTextSize = 30;
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     display: "flex",
-    backgroundColor: colors.white
+    backgroundColor: theme.colors.white
   },
   welcomeWrapper: {
     flex: 1,
@@ -33,12 +33,12 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: headingTextSize,
-    color: colors.black,
+    color: theme.colors.black,
     fontWeight: "300",
     marginBottom: 40
   },
   facebookButtonIcon: {
-    color: colors.black,
+    color: theme.colors.black,
     position: "relative",
     left: 20,
     zIndex: 8
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   moreOptionsButtonText: {
-    color: colors.black,
+    color: theme.colors.black,
     fontSize: 16
   },
   termsAndConditions: {
@@ -57,13 +57,13 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   termsText: {
-    color: colors.black,
+    color: theme.colors.black,
     fontSize: termsTextSize,
     fontWeight: "600"
   },
   linkButton: {
     borderBottomWidth: 1,
-    borderBottomColor: colors.black
+    borderBottomColor: theme.colors.black
   }
 });
 
