@@ -9,15 +9,20 @@ import { View, Text } from "react-native";
 import transparentHeaderStyle from "../src/utils/HeaderStyle";
 
 //components
+import Loader from "../src/components/Loader";
+
+//screens
 import OnBoarding from "../src/screens/onboarding";
 import SignInScreen from "../src/screens/signIn";
+import LoginScreen from "../src/screens/authentication/Login";
+import ForgotPasswordScreen from "../src/screens/authentication/ForgotPassword";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
 
 const Stack = createStackNavigator();
 
-function AppNavigator() {
+function AppNavigator({ navigation }) {
   const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
@@ -44,34 +49,32 @@ function AppNavigator() {
 
   if (auth.isLoading) {
     // We haven't finished checking for the token yet
-    return (
-      <View
-        style={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        <Text>Loading..</Text>
-      </View>
-    );
+    return <Loader modalVisible={auth.isLoading} animationType='fade' />;
   }
 
   return (
     <Stack.Navigator>
       {auth.userToken == null ? (
         // No token found, user isn't signed in
-        <Stack.Screen
-          name='SignIn'
-          component={SignInScreen}
-          options={{
-            title: "Sign in",
-            // When logging out, a pop animation feels intuitive
-            // You can remove this if you want the default 'push' animation
-            animationTypeForReplace: auth.isSignout ? "pop" : "push"
-          }}
-        />
+        <>
+          <Stack.Screen
+            name='LoginScreen'
+            component={LoginScreen}
+            options={{
+              title: null,
+              // When logging out, a pop animation feels intuitive
+              // You can remove this if you want the default 'push' animation
+              animationTypeForReplace: auth.isSignout ? "pop" : "push"
+            }}
+          />
+          <Stack.Screen
+            name='ForgotPassword'
+            component={ForgotPasswordScreen}
+            options={{
+              title: null
+            }}
+          />
+        </>
       ) : (
         // User is signed in
         <Stack.Screen
